@@ -13,6 +13,85 @@
   background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+/* Efecto BOOM */
+@keyframes boomEffect {
+  0% {
+    transform: translateX(-100%); /* Empieza fuera de la pantalla hacia la izquierda */
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10%); /* Se mueve ligeramente hacia su lugar */
+    opacity: 1; /* Se hace visible */
+  }
+  100% {
+    transform: translateX(0); /* Se coloca en su posición final */
+    opacity: 1; /* Se mantiene visible */
+  }
+}
+
+/* Estilo de las frases */
+.hero-text h1, .hero-text h2 {
+  visibility: hidden; /* Inicialmente invisibles */
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  animation: boomEffect 2s ease-out forwards; /* Aparece con efecto BOOM */
+  transform: translateX(-100%); /* Empieza desde la izquierda */
+}
+
+/* Tamaño de texto para h1 y h2 */
+.hero-text h1 {
+  font-size: 2.5rem; /* Tamaño más grande para el título principal */
+}
+
+.hero-text h2 {
+  font-size: 1.75rem; /* Un poco más pequeño para el segundo título */
+}
+
+/* Animación secuencial BOOM para los textos */
+.hero-text h1 {
+  animation-delay: 0s; /* Primer texto sin demora */
+}
+
+.hero-text h2:nth-of-type(1) { /* Primer h2 */
+  animation-delay: 2s; /* Segundo texto después de 2 segundos */
+}
+
+.hero-text h2:nth-of-type(2) { /* Segundo h2 */
+  animation-delay: 4s; /* Tercer texto después de 4 segundos */
+}
+
+/* Botón de "En savoir plus" */
+.hero-text .btn-primary {
+  visibility: hidden;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  animation: slideInFromRight 1s ease-out forwards;
+  animation-delay: 6s; /* Aparece después de la última frase */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Añadir transición para el agrandamiento */
+}
+
+
+/* Animación de deslizamiento del botón */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%); /* Empieza fuera de la pantalla */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Llega a su posición final */
+    opacity: 1;
+  }
+}
+
+
 
 @keyframes slideInFromTop {
   0% {
@@ -53,10 +132,6 @@
   margin-bottom: 10px;
 }
 
-.hero-text p {
-  font-size: 1.25rem; /* Tamaño intermedio */
-  font-weight: 400;
-}
 
 .hero-text a {
   text-transform: uppercase; /* Botón con texto en mayúsculas */
@@ -79,7 +154,6 @@
 
 .hero-text .btn.btn-primary:hover {
   background-color: #0056b3; /* Color más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Efecto de zoom */
 }
 
 
@@ -129,76 +203,131 @@
 }
 
 .service-title {
-  font-size: 1.5rem; /* Ajusta el tamaño del texto */
-  font-weight: 600; /* Negrita para hacer que se destaque */
-  margin-bottom: 15px; /* Espacio debajo del título */
-  color: black; /* Texto blanco para que se destaque */
-  transition: color 0.3s ease, text-shadow 0.3s ease; /* Efecto de transición en el color y la sombra */
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: black;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Efecto hover: resplandor y cambio de color */
 .service-title:hover {
-  color: #ff4500; /* Cambiar color del texto al pasar el ratón */
-  text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.8); /* Resplandor naranja al hacer hover */
-}
-
-/* Animación de deslizamiento para los títulos al cargar */
-@keyframes slideInTitle {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.service-title {
-  animation: slideInTitle 1s ease-out; /* Los títulos aparecen deslizándose desde abajo */
+  color: #ff4500;
+  text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.8);
 }
 
 .service-title::before {
-  content: '💡'; /* Ícono opcional antes de cada título */
+  content: '💡';
   margin-right: 10px;
 }
 
-/* Efecto al pasar el ratón sobre las imágenes */
 .service-image {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .service-image:hover {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  border-radius: 12px; /* Bordes más redondeados */
-}
-
-/* Efecto de desplazamiento de imágenes al hacer scroll */
-@keyframes slideIn {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.service-container img {
-  animation: slideIn 1s ease-out; /* La imagen se desliza cuando aparece */
-}
-
-/* Animación al pasar por encima de las tarjetas de servicio */
-.service-container:hover .service-image {
-  transform: translateY(-10px) scale(1.05); /* Efecto sutil de desplazamiento y escalado */
+  transform: scale(1.1);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
 }
 
+.service-description {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.service-container:hover .service-image {
+  transform: translateY(-10px) scale(1.05);
+}
+
 .service-container .service-title {
-  transform: translateY(-32%); /* Mueve los títulos un 10% hacia arriba */
+  transform: translateY(-15%);
+}
+
+
+
+/* Contenedor activo: imagen a la izquierda, cuadro de texto a la derecha */
+.service-container.active {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px; /* Separación entre imagen y cuadro */
+  width: 100%;
+}
+
+/* Imagen: ocupa 33.33% del ancho */
+.service-container.active .service-image {
+  width: 33.33%;
+  height: auto;
+}
+
+/* Cuadro de texto: ocupa 66.66% y aparece solo cuando es visible */
+.service-text-box {
+  width: 66.66%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: none; /* Oculto al inicio */
+}
+
+.service-text-box h2 {
+  font-size: 2rem;
+}
+
+.service-text-box p {
+  font-size: 1.2rem;
+}
+
+/* Botón de cierre mejorado: fijo dentro del cuadro de texto */
+.close-button {
+  background-color: transparent;
+  border: 2px solid #ff4500;
+  border-radius: 50px;
+  color: #ff4500;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute; /* Botón dentro del cuadro de texto */
+  right: 20px; /* A la derecha del cuadro de texto */
+  bottom: 20px; /* Un poco elevado del borde inferior */
+  z-index: 2; /* Asegura que se muestre por encima */
+}
+
+/* Efecto al pasar el ratón */
+.close-button:hover {
+  background-color: #ff4500;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 69, 0, 0.5);
+}
+
+/* Ajuste para el cuadro de texto */
+.service-text-box {
+  width: 66.66%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px 20px; /* Espacio adicional para el botón */
+  border-radius: 12px;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative; /* Necesario para que el botón esté bien posicionado */
+  display: none;
+}
+
+
+/* Título */
+.service-text-box h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Texto descriptivo */
+.service-text-box p {
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 
