@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Botón de cambio de modo -->
+<div class="fixed-dark-mode">
+  <button id="darkModeToggle" class="btn btn-secondary">🌙</button>
+</div>
+
+
+<!-- Hero Section (Imagen principal con textos) -->
+<div class="container-fluid p-0">
+  <div class="position-relative">
+    <!-- Imagen principal -->
+    <img src="https://macsharpening.com/wp-content/uploads/2024/12/logp.webp" class="hero-image" alt="Cuchillo afilado">
+
+    <!-- Texto de encabezado con frases clave -->
+    <div class="position-absolute top-0 start-0 p-5 text-white hero-text">
+      <h1 class="fw-bold display-4">Transformer la passion en profession !</h1>
+      <h2 class="fs-4 fw-light">Offrir des services d'affûtage fiables et méticuleux.</h2>
+      <p class="fs-5 fw-normal">Service VIP: On ramasse, on aiguise, on ramène… tout ça le même jour!</p>
+      <a href="#services" class="btn btn-primary mt-3">En savoir plus</a>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="contact-info">
+      <a href="tel:+14385296883">
+        <i class="fas fa-phone"></i> +1 438-529-6883
+      </a>
+      <a href="mailto:info@macsharpening.com">
+        <i class="fas fa-envelope"></i> info@macsharpening.com
+      </a>
+      <a href="https://www.facebook.com/MacSharpening" target="_blank">
+        <i class="fab fa-facebook"></i> /MacSharpening
+      </a>
+    </div>
+
+
+  </div>
+</div>
+
+  <!-- Sección actualizada con los nuevos textos -->
+<div class="container my-5" id="services">
+  <div class="row text-center">
+    <div class="col-md-4 service-container">
+      <h3 class="service-title">Nos Services</h3> <!-- Cambiar "Nos Services" -->
+      <img src="https://macsharpening.com/wp-content/uploads/2024/12/main.webp" alt="Imagen del servicio 1" class="img-fluid rounded mb-3 service-image">
+      <p class="service-text">Explication sur comment transformer la passion en profession.</p>
+    </div>
+    <div class="col-md-4 service-container">
+      <h3 class="service-title">Campagne Promotionnelle</h3> <!-- Cambiar el título aquí -->
+      <img src="https://macsharpening.com/wp-content/uploads/2024/12/Magane.webp" alt="Imagen del servicio 2" class="img-fluid rounded mb-3 service-image">
+      <p class="service-text">Offrir un service d'affûtage fiable et précis.</p>
+    </div>
+    <div class="col-md-4 service-container">
+      <h3 class="service-title">Nos Spéciaux</h3> <!-- Cambiar el título aquí -->
+      <img src="https://macsharpening.com/wp-content/uploads/2024/12/grainder.webp" alt="Imagen del servicio 3" class="img-fluid rounded mb-3 service-image">
+      <p class="service-text">Collecte, affûtage et retour le jour même.</p>
+    </div>
+  </div>
+</div>
+ 
+  
+  <!-- Sección de Promoción Especial -->
+  <div class="container-fluid bg-light py-5" id="special-offer">
+    <h2 class="text-center">Offre spéciale : Trois couteaux</h2>
+    <div class="text-center">
+    <img src="https://macsharpening.com/wp-content/uploads/2024/12/TPMSPostcard_4x6_-BACK.webp" alt="Promotion spéciale" class="img-fluid w-50" style="border-radius: 20px;">
+    <p class="price-highlight">$20 pour l'aiguisage de trois couteaux</p>
+    <p>Profitez de cette offre spéciale pour trois couteaux affûtés en un temps record !</p>
+    <a href="#contact" class="btn btn-danger mt-3">Réserver maintenant</a>
+  </div>
+  
+  </div>
+  
+  <!-- Sección de Contacto -->
+  <div class="container my-5" id="contact">
+    <h2 class="text-center">Contactez-nous</h2>
+    <p class="text-center">Pour toute question, contactez-nous par email ou suivez-nous sur nos réseaux sociaux.</p>
+  
+    <!-- Botones con íconos -->
+    <div class="text-center mb-4">
+      <a href="mailto:email@example.com" class="btn btn-primary btn-email">Envoyer un email</a>
+      <a href="https://facebook.com" class="btn btn-outline-primary btn-facebook">Facebook</a>
+    </div>
+  
+    <!-- Formulario de contacto básico -->
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="name" placeholder="Votre nom">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Votre email">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="3" placeholder="Votre message"></textarea>
+    </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

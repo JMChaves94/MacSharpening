@@ -1,0 +1,441 @@
+/* Imagen de folleto */
+.img-thumbnail {
+  max-width: 300px;
+  border-radius: 15px; /* Bordes redondeados */
+}
+
+.hero-image {
+  width: 100%; /* Ocupar todo el ancho */
+  height: 400px; /* Altura del header */
+  background-image: url('https://macsharpening.com/wp-content/uploads/2024/12/logp.webp'); /* Imagen de fondo */
+  background-size: contain; /* Mantiene la proporción sin cortar */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%); /* Comienza fuera de la pantalla arriba */
+    opacity: 0; /* Invisible al principio */
+  }
+  100% {
+    transform: translateY(0); /* Llega a su posición final */
+    opacity: 1; /* Se hace visible */
+  }
+}
+
+.hero-text {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para mejor contraste */
+  padding: 30px;
+  border-radius: 2px; /* Bordes más redondeados */
+  color: white; /* Texto blanco para asegurar legibilidad */
+  max-width: 600px; /* Limita el ancho para evitar que ocupe todo el espacio */
+
+  /* Estilos adicionales para que ocupe toda la altura */
+  height: 100%; /* Ocupa toda la altura del contenedor */
+  display: flex; /* Flexbox para alineación */
+  flex-direction: column; /* Mantiene el orden vertical */
+  justify-content: center; /* Centra verticalmente los textos */
+  animation: slideInFromTop 1s ease-out; /* Aparece con el efecto de desplazamiento desde arriba */
+}
+
+
+.hero-text h1 {
+  font-size: 2.5rem; /* Tamaño grande para destacar */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el texto */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 300; /* Fuente más ligera para diferenciarlo */
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.25rem; /* Tamaño intermedio */
+  font-weight: 400;
+}
+
+.hero-text a {
+  text-transform: uppercase; /* Botón con texto en mayúsculas */
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.hero-text a:hover {
+  background-color: #0056b3; /* Azul más oscuro al hacer hover */
+  transform: scale(1.05); /* Leve zoom */
+}
+
+.hero-text .btn.btn-primary {
+  font-size: 14px; /* Tamaño de texto */
+  padding: 6px 12px; /* Espaciado interno */
+  border-radius: 2px; /* Bordes menos redondeados */
+  width: fit-content; /* Ajusta el ancho al contenido */
+  margin: 0 auto; /* Centra el botón horizontalmente */
+}
+
+.hero-text .btn.btn-primary:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%); /* Comienza fuera de la pantalla a la derecha */
+    opacity: 0; /* Invisible al principio */
+  }
+  100% {
+    transform: translateX(0); /* Llega a su posición final */
+    opacity: 1; /* Se hace visible */
+  }
+}
+
+.contact-info {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: slideInFromRight 1s ease-out; /* Aparece con el efecto de desplazamiento */
+}
+
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-info a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Sutil cambio de fondo */
+  transform: scale(1.05); /* Leve aumento de tamaño */
+}
+
+
+.contact-info i {
+  font-size: 18px;
+}
+
+.service-title {
+  font-size: 1.5rem; /* Ajusta el tamaño del texto */
+  font-weight: 600; /* Negrita para hacer que se destaque */
+  margin-bottom: 15px; /* Espacio debajo del título */
+  color: black; /* Texto blanco para que se destaque */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Efecto de transición en el color y la sombra */
+}
+
+/* Efecto hover: resplandor y cambio de color */
+.service-title:hover {
+  color: #ff4500; /* Cambiar color del texto al pasar el ratón */
+  text-shadow: 2px 2px 15px rgba(255, 69, 0, 0.8); /* Resplandor naranja al hacer hover */
+}
+
+/* Animación de deslizamiento para los títulos al cargar */
+@keyframes slideInTitle {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.service-title {
+  animation: slideInTitle 1s ease-out; /* Los títulos aparecen deslizándose desde abajo */
+}
+
+.service-title::before {
+  content: '💡'; /* Ícono opcional antes de cada título */
+  margin-right: 10px;
+}
+
+/* Efecto al pasar el ratón sobre las imágenes */
+.service-image {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.service-image:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 12px; /* Bordes más redondeados */
+}
+
+/* Efecto de desplazamiento de imágenes al hacer scroll */
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.service-container img {
+  animation: slideIn 1s ease-out; /* La imagen se desliza cuando aparece */
+}
+
+/* Animación al pasar por encima de las tarjetas de servicio */
+.service-container:hover .service-image {
+  transform: translateY(-10px) scale(1.05); /* Efecto sutil de desplazamiento y escalado */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.service-container .service-title {
+  transform: translateY(-32%); /* Mueve los títulos un 10% hacia arriba */
+}
+
+
+.price-highlight {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff4500; /* Naranja llamativo */
+  margin-top: 15px;
+  animation: pulse 1.5s infinite; /* Animación de "latido" */
+}
+
+.price-highlight::before {
+  content: '💰'; /* Emoji de dinero */
+  margin-right: 8px;
+}
+
+/* Íconos en los botones */
+.btn-email::before {
+  content: '✉️'; /* Icono de sobre */
+  margin-right: 8px;
+}
+
+.btn-facebook::before {
+  content: '📘'; /* Icono de Facebook */
+  margin-right: 8px;
+}
+
+/* Estilo del formulario */
+form {
+  max-width: 600px;
+  margin: 20px auto; /* Centra el formulario */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+form .form-control {
+  border-color: #007bff; /* Color de borde azul */
+}
+
+form .btn-success {
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+form .btn-success:hover {
+  background-color: #28a745; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Estilos generales para modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .hero-text {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f0f0f0;
+}
+
+.dark-mode .service-title {
+  background-color: rgba(50, 50, 50, 0.8);
+  color: white;
+}
+
+.dark-mode .service-text,
+.dark-mode .price-highlight,
+.dark-mode p,
+.dark-mode h2.text-center {
+  color: #ffffff; /* Texto blanco en modo oscuro */
+}
+
+.dark-mode .btn-danger {
+  background-color: #d62828;
+  color: #fff; /* Blanco para el texto */
+}
+
+.dark-mode .btn-danger:hover {
+  background-color: #b22222;
+}
+
+.dark-mode .btn-primary,
+.dark-mode .btn-outline-primary {
+  background-color: #444;
+  border-color: #777;
+  color: #e0e0e0;
+}
+
+.dark-mode .btn-primary:hover,
+.dark-mode .btn-outline-primary:hover {
+  background-color: #333;
+}
+
+.dark-mode form {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+.dark-mode .img-thumbnail {
+  border-color: #555;
+}
+
+/* Posición fija para el botón de modo oscuro */
+.fixed-dark-mode {
+  position: fixed; /* Hace que el botón se quede fijo al hacer scroll */
+  top: 20px; /* Espacio desde la parte superior */
+  right: 20px; /* Espacio desde la derecha */
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+.fixed-dark-mode button {
+  padding: 10px 15px;
+  border-radius: 50px; /* Hace el botón más redondeado */
+  background-color: #6c757d; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fixed-dark-mode button:hover {
+  transform: scale(1.1); /* Efecto de zoom suave */
+  background-color: #5a6268; /* Color más oscuro al hacer hover */
+}
+
+/* Modo oscuro para la sección de promoción especial */
+.dark-mode .bg-light {
+  background-color: #1e1e1e !important; /* Fondo oscuro */
+  color: white !important; /* Texto en blanco */
+}
+
+.dark-mode .price-highlight {
+  color: #ffcc00; /* Amarillo para resaltar en modo oscuro */
+}
+
+.dark-mode h2.text-center {
+  color: #ffffff !important; /* Título en blanco */
+}
+
+.dark-mode a.btn-danger {
+  background-color: #c82333; /* Rojo más oscuro */
+  color: white;
+}
+
+.dark-mode a.btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+
+/* Centrar el botón "Envoyer" */
+form .btn-primary {
+  display: block; /* Convierte el botón en bloque para ocupar todo el ancho del contenedor */
+  margin: 20px auto 0 auto; /* Centra horizontalmente */
+  width: fit-content; /* Ajusta el ancho del botón al contenido */
+}
+
+/* Estilo general para los placeholder en modo claro con transparencia */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Gris oscuro con 50% de opacidad */
+    font-style: italic; /* Opcional */
+}
+
+/* Placeholder en modo oscuro con transparencia */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Blanco con 50% de opacidad */
+}
+
+/* Estilo de los campos de formulario en modo oscuro */
+body.dark-mode .form-control {
+    background-color: rgba(51, 51, 51, 0.8); /* Fondo oscuro con algo de transparencia */
+    border-color: rgba(85, 85, 85, 0.8); /* Borde gris oscuro semitransparente */
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco casi opaco */
+}
+
+
+
+/* Animación del precio */
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-info {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    padding: 20px;
+    width:100%; /* Ocupa todo el ancho con un margen lateral pequeño */
+    left: 50%;
+    transform: translateX(-50%) translateY(112%);
+    bottom: 20px;
+    text-align: center;
+    max-width: 600px; /* Opcional: evita que sea demasiado ancho */
+  }
+
+  .contact-info a {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .hero-text {
+    margin-bottom: 0;
+  }
+
+  .btn-primary {
+    margin-top: 0;
+  }
+
+  .fixed-dark-mode button {
+    padding: 4px 8px;
+    border-radius: 50px;
+    background-color: #6c757d;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    top: -12px;
+    left: 12px;
+  }
+
+  .service-title {
+    margin-top: 111px;
+  }
+}
+
+
