@@ -205,7 +205,7 @@
 .service-title {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
   color: black;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -222,6 +222,7 @@
 
 .service-image {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
+ 
 }
 
 .service-image:hover {
@@ -231,7 +232,7 @@
 }
 
 .service-description {
-  margin-top: 10px;
+  margin-top: 40px;
   font-size: 1rem;
 }
 
@@ -256,8 +257,10 @@
 
 /* Imagen: ocupa 33.33% del ancho */
 .service-container.active .service-image {
-  width: 33.33%;
+  width: 33.33%; /* Un tercio del ancho */
+  max-width: 400px; /* Límite máximo para la imagen */
   height: auto;
+  object-fit: cover; /* Evitar distorsiones */
 }
 
 /* Cuadro de texto: ocupa 66.66% y aparece solo cuando es visible */
@@ -567,4 +570,40 @@ body.dark-mode .form-control {
   }
 }
 
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .service-container.active {
+    flex-direction: column; /* Cambia la dirección a columna para poner imagen arriba y texto debajo */
+    align-items: center; /* Centrar contenido en dispositivos móviles */
+  }
+
+  .service-container.active .service-image {
+    width: 100%; /* Imagen ocupa todo el ancho */
+  }
+
+  .service-text-box {
+    width: 100%; /* Texto ocupa todo el ancho */
+    margin-top: 10px; /* Separación entre imagen y texto */
+    padding: 15px; /* Reducimos padding en móviles */
+  }
+
+  .close-button {
+    font-size: 1rem; /* Botón más grande para móviles */
+    float: none; /* Evitamos que se desplace a la derecha */
+    transform: translateY(-108px);
+  }
+
+  #services {
+    padding-top: 100px; /* Aumenta el espacio superior */
+  }
+
+  .service-title {
+    margin-bottom: 40px; /* Ajusta este valor para separar más el título de la imagen */
+  }
+  
+  .service-description {
+    margin-top: 40px;
+    font-size: 1rem;
+}
+}
 
