@@ -11,6 +11,20 @@
     <title>Document</title>
 </head>
 <body>
+<!-- Botón para volver arriba -->
+<div id="scrollToTopButton" class="scroll-to-top"></div>
+
+<div class="scroll-progress"></div>
+
+<div class="quick-menu">
+  <button class="scroll-to-top" title="Retour en haut"></button>
+  <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'});">Services</button>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Contact</button>
+</div>
+
+
+
+<div id="loading-spinner"></div>
 
 
 <!-- Botón de cambio de modo -->

@@ -1,107 +1,69 @@
-window.onload = function() {
-  window.scrollTo(0, 0);  // Esto llevará el scroll a la parte superior
-}
+window.onload = function () {
+  window.scrollTo(0, 0); // Esto llevará el scroll a la parte superior al cargar la página
+};
 
 // Función para alternar entre modo claro y oscuro
 document.addEventListener('DOMContentLoaded', () => {
   const darkModeToggle = document.getElementById('darkModeToggle');
   const body = document.body;
 
-  // Forzar inicio en modo claro si no hay registro previo
   if (!localStorage.getItem('dark-mode')) {
-    localStorage.setItem('dark-mode', 'disabled'); // Iniciar en modo claro por defecto
+    localStorage.setItem('dark-mode', 'disabled'); // Modo claro por defecto
   }
 
-  // Verificar si está guardado el modo oscuro en localStorage
   if (localStorage.getItem('dark-mode') === 'enabled') {
     body.classList.add('dark-mode'); // Activar modo oscuro si estaba guardado
-    darkModeToggle.innerText = '☀️'; // Mostrar ícono para modo claro
+    darkModeToggle.innerText = '☀️';
   } else {
-    body.classList.remove('dark-mode'); // Asegurar que comience en modo claro
-    darkModeToggle.innerText = '🌙'; // Mostrar ícono para modo oscuro
+    body.classList.remove('dark-mode');
+    darkModeToggle.innerText = '🌙';
   }
 
   darkModeToggle.addEventListener('click', () => {
     if (body.classList.contains('dark-mode')) {
       body.classList.remove('dark-mode'); // Cambiar a modo claro
       localStorage.setItem('dark-mode', 'disabled');
-      darkModeToggle.innerText = '🌙'; // Cambiar el ícono a modo oscuro
+      darkModeToggle.innerText = '🌙';
     } else {
       body.classList.add('dark-mode'); // Cambiar a modo oscuro
       localStorage.setItem('dark-mode', 'enabled');
-      darkModeToggle.innerText = '☀️'; // Cambiar el ícono a modo claro
+      darkModeToggle.innerText = '☀️';
     }
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+// Efecto de aparición de texto en la sección principal
+document.addEventListener("DOMContentLoaded", function () {
   const text1 = document.querySelector('.hero-text h1');
-  const text2 = document.querySelector('.hero-text h2:nth-of-type(1)'); // Primer h2
-  const text3 = document.querySelector('.hero-text h2:nth-of-type(2)'); // Segundo h2 (frase "Service VIP")
+  const text2 = document.querySelector('.hero-text h2:nth-of-type(1)');
+  const text3 = document.querySelector('.hero-text h2:nth-of-type(2)');
 
-  // Se aplica el efecto BOOM a la primera frase
   text1.style.visibility = 'visible';
-  
-  // Después de 2 segundos, activamos la animación de la segunda frase
-  setTimeout(function() {
+
+  setTimeout(function () {
     text2.style.visibility = 'visible';
-  }, 2000);  // 2 segundos después del primer efecto
-  
-  // Después de 4 segundos, activamos la animación de la tercera frase
-  setTimeout(function() {
+  }, 2000);
+
+  setTimeout(function () {
     text3.style.visibility = 'visible';
-  }, 4000);  // 4 segundos después del segundo efecto
+  }, 4000);
 
-  // Mostrar el botón "En savoir plus" después de que la última frase se haya mostrado
-  setTimeout(function() {
+  setTimeout(function () {
     const button = document.querySelector('.hero-text .btn-primary');
-    button.style.visibility = 'visible'; // Aparece el botón
-  }, 6000);  // Después de que las tres frases han aparecido
+    button.style.visibility = 'visible';
+  }, 6000);
 });
 
-
-
-
+// Funcionalidad de los contenedores de servicios
 document.addEventListener("DOMContentLoaded", function () {
   const serviceContainers = document.querySelectorAll('.service-container');
-
-  serviceContainers.forEach((container, index) => {
-    const image = container.querySelector('.service-image');
-    const title = container.querySelector('.service-title');
-    const description = container.querySelector('.service-description');
-
-    image.addEventListener('click', function () {
-      serviceContainers.forEach((otherContainer) => {
-        const otherImage = otherContainer.querySelector('.service-image');
-        const otherTitle = otherContainer.querySelector('.service-title');
-        const otherDescription = otherContainer.querySelector('.service-description');
-
-        if (otherContainer !== container) {
-          otherImage.style.display = 'none';
-          otherTitle.style.display = 'none';
-          otherDescription.style.display = 'none';
-        }
-      });
-
-      image.style.display = 'block';
-      title.style.display = 'block';
-      description.style.display = 'block';
-    });
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const serviceContainers = document.querySelectorAll('.service-container');
-  const closeButtons = document.querySelectorAll('.close-button');
 
   serviceContainers.forEach((container) => {
     const image = container.querySelector('.service-image');
     const textBox = container.querySelector('.service-text-box');
+    const closeButton = container.querySelector('.close-button');
 
     image.addEventListener('click', function () {
-      // Ocultar todas las demás secciones
       serviceContainers.forEach((otherContainer) => {
         otherContainer.classList.remove('active');
         otherContainer.querySelector('.service-image').style.display = 'none';
@@ -110,16 +72,12 @@ document.addEventListener("DOMContentLoaded", function () {
         otherContainer.querySelector('.service-text-box').style.display = 'none';
       });
 
-      // Mostrar solo la imagen y cuadro de texto del contenedor seleccionado
       container.classList.add('active');
       image.style.display = 'block';
       textBox.style.display = 'block';
     });
 
-    // Funcionalidad del botón "Regresar"
-    const closeButton = container.querySelector('.close-button');
     closeButton.addEventListener('click', function () {
-      // Restaurar todas las imágenes, títulos y descripciones
       serviceContainers.forEach((otherContainer) => {
         otherContainer.classList.remove('active');
         otherContainer.querySelector('.service-image').style.display = 'block';
@@ -131,10 +89,72 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Animación de fade-in al hacer scroll
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".fade-in").forEach((element) => {
+    if (element.getBoundingClientRect().top < window.innerHeight) {
+      element.classList.add("visible");
+    }
+  });
+});
 
+// Mostrar barra de progreso al hacer scroll
+window.addEventListener("scroll", () => {
+  const scrollProgress = document.querySelector(".scroll-progress");
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollTop = window.scrollY;
+  const progress = (scrollTop / scrollHeight) * 100;
+  scrollProgress.style.width = `${progress}%`;
+});
 
+// Ocultar el spinner de carga al cargar la página
+window.addEventListener("load", () => {
+  document.getElementById("loading-spinner").style.display = "none";
+});
 
+// Mostrar elementos de la sección cuando son visibles
+document.addEventListener("scroll", function () {
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top < window.innerHeight * 0.8) {
+      section.classList.add("visible");
+    }
+  });
+});
 
+// Función de scroll suave al inicio
+const scrollToTopButton = document.getElementById("scrollToTopButton");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    scrollToTopButton.classList.add("show");
+  } else {
+    scrollToTopButton.classList.remove("show");
+  }
+});
+
+scrollToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Control del menú rápido
+document.addEventListener("DOMContentLoaded", function () {
+  const quickMenu = document.querySelector(".quick-menu");
+  const scrollToTopQuickButton = quickMenu.querySelector(".scroll-to-top");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      quickMenu.style.bottom = "30px"; // Fijo para evitar saltos
+      scrollToTopQuickButton.style.display = "flex";
+    } else {
+      quickMenu.style.bottom = "30px"; // Mantener fijo
+      scrollToTopQuickButton.style.display = "none";
+    }
+  });
+
+  scrollToTopQuickButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
 
 
 

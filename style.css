@@ -1,3 +1,66 @@
+html {
+  scroll-behavior: smooth;
+}
+
+button:focus, a:focus {
+  outline: none;
+}
+
+button, a {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover {
+  transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.decorative-img {
+  pointer-events: none;
+}
+
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+button:active {
+  transform: scale(0.98); /* Leve reducción al presionar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+button, a {
+  cursor: pointer;
+}
+
+p {
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+
+
+
 /* Imagen de folleto */
 .img-thumbnail {
   max-width: 300px;
@@ -232,8 +295,7 @@
 }
 
 .service-description {
-  margin-top: 40px;
-  font-size: 1rem;
+  display: none !important;
 }
 
 .service-container:hover .service-image {
@@ -602,8 +664,138 @@ body.dark-mode .form-control {
   }
   
   .service-description {
-    margin-top: 40px;
-    font-size: 1rem;
+    display: none !important;
+  }
+  
 }
+
+/* Botón de scroll-to-top elegante */
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 140px; /* Lo colocamos justo encima de los otros botones */
+  right: 40px;
+  background-color: #0066ff; /* Mismo color */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Igual a los botones de contacto */
+  padding: 3px 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.scroll-to-top:hover {
+  background-color: #0046cc; /* Mismo color de hover */
+  transform: scale(1.1); /* Leve zoom */
+}
+
+
+
+/* Icono de flecha hacia arriba */
+.scroll-to-top::before {
+  content: '↑'; /* Flecha hacia arriba */
+  font-size: 24px;
+  color: white;
+}
+
+
+/* Animación de entrada */
+.scroll-to-top.show {
+  display: flex;
+  opacity: 1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+body.scrolled .scroll-to-top {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #0066ff, #00d2ff);
+  z-index: 1000;
+  transition: width 0.25s ease-out;
+}
+
+.service-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-menu {
+  position: fixed;
+  bottom: 30px; /* Alineación general */
+  right: 30px;
+  display: flex;
+  flex-direction: column-reverse; /* Botón "arriba" arriba */
+  gap: 10px;
+  z-index: 1000;
+}
+
+
+.quick-menu button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quick-menu button:hover {
+  background-color: #0046cc;
+  transform: scale(1.1);
+}
+
+#loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #0066ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
 
